@@ -1,0 +1,200 @@
+#region Using declarations
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Xml.Serialization;
+using NinjaTrader.Cbi;
+using NinjaTrader.Gui;
+using NinjaTrader.Gui.Chart;
+using NinjaTrader.Gui.SuperDom;
+using NinjaTrader.Gui.Tools;
+using NinjaTrader.Data;
+using NinjaTrader.NinjaScript;
+using NinjaTrader.Core.FloatingPoint;
+
+#endregion
+
+
+
+#region NinjaScript generated code. Neither change nor remove.
+
+namespace NinjaTrader.NinjaScript.Indicators
+{
+	public partial class Indicator : NinjaTrader.Gui.NinjaScript.IndicatorRenderBase
+	{
+		
+		private TSSuperTrend[] cacheTSSuperTrend;
+		private MACDBBLINES[] cacheMACDBBLINES;
+		private FossilBlade.GatorAmped[] cacheGatorAmped;
+		private FossilBlade.SMMAR[] cacheSMMAR;
+
+		
+		public TSSuperTrend TSSuperTrend(SuperTrendMode smode, int length, double multiplier, MovingAverageType maType, int smooth, bool showArrows, bool colorBars, bool playAlert)
+		{
+			return TSSuperTrend(Input, smode, length, multiplier, maType, smooth, showArrows, colorBars, playAlert);
+		}
+
+		public MACDBBLINES MACDBBLINES(int fast, int slow, int smoothing, Brush upColor, Brush dwColor, int stDev, int period, int bandFillOpacity, Brush bandFillColor, bool showCross, Brush crossAlert, Brush crossAlert2)
+		{
+			return MACDBBLINES(Input, fast, slow, smoothing, upColor, dwColor, stDev, period, bandFillOpacity, bandFillColor, showCross, crossAlert, crossAlert2);
+		}
+
+		public FossilBlade.GatorAmped GatorAmped(bool artBasedStatus, bool colored, int wakingTick, int feastingTick, int aboutToSleepTick, double atrMultiplier, bool playPBSound)
+		{
+			return GatorAmped(Input, artBasedStatus, colored, wakingTick, feastingTick, aboutToSleepTick, atrMultiplier, playPBSound);
+		}
+
+		public FossilBlade.SMMAR SMMAR(int period)
+		{
+			return SMMAR(Input, period);
+		}
+
+
+		
+		public TSSuperTrend TSSuperTrend(ISeries<double> input, SuperTrendMode smode, int length, double multiplier, MovingAverageType maType, int smooth, bool showArrows, bool colorBars, bool playAlert)
+		{
+			if (cacheTSSuperTrend != null)
+				for (int idx = 0; idx < cacheTSSuperTrend.Length; idx++)
+					if (cacheTSSuperTrend[idx].Smode == smode && cacheTSSuperTrend[idx].Length == length && cacheTSSuperTrend[idx].Multiplier == multiplier && cacheTSSuperTrend[idx].MaType == maType && cacheTSSuperTrend[idx].Smooth == smooth && cacheTSSuperTrend[idx].ShowArrows == showArrows && cacheTSSuperTrend[idx].ColorBars == colorBars && cacheTSSuperTrend[idx].PlayAlert == playAlert && cacheTSSuperTrend[idx].EqualsInput(input))
+						return cacheTSSuperTrend[idx];
+			return CacheIndicator<TSSuperTrend>(new TSSuperTrend(){ Smode = smode, Length = length, Multiplier = multiplier, MaType = maType, Smooth = smooth, ShowArrows = showArrows, ColorBars = colorBars, PlayAlert = playAlert }, input, ref cacheTSSuperTrend);
+		}
+
+		public MACDBBLINES MACDBBLINES(ISeries<double> input, int fast, int slow, int smoothing, Brush upColor, Brush dwColor, int stDev, int period, int bandFillOpacity, Brush bandFillColor, bool showCross, Brush crossAlert, Brush crossAlert2)
+		{
+			if (cacheMACDBBLINES != null)
+				for (int idx = 0; idx < cacheMACDBBLINES.Length; idx++)
+					if (cacheMACDBBLINES[idx].Fast == fast && cacheMACDBBLINES[idx].Slow == slow && cacheMACDBBLINES[idx].Smoothing == smoothing && cacheMACDBBLINES[idx].UpColor == upColor && cacheMACDBBLINES[idx].DwColor == dwColor && cacheMACDBBLINES[idx].StDev == stDev && cacheMACDBBLINES[idx].Period == period && cacheMACDBBLINES[idx].BandFillOpacity == bandFillOpacity && cacheMACDBBLINES[idx].BandFillColor == bandFillColor && cacheMACDBBLINES[idx].ShowCross == showCross && cacheMACDBBLINES[idx].CrossAlert == crossAlert && cacheMACDBBLINES[idx].CrossAlert2 == crossAlert2 && cacheMACDBBLINES[idx].EqualsInput(input))
+						return cacheMACDBBLINES[idx];
+			return CacheIndicator<MACDBBLINES>(new MACDBBLINES(){ Fast = fast, Slow = slow, Smoothing = smoothing, UpColor = upColor, DwColor = dwColor, StDev = stDev, Period = period, BandFillOpacity = bandFillOpacity, BandFillColor = bandFillColor, ShowCross = showCross, CrossAlert = crossAlert, CrossAlert2 = crossAlert2 }, input, ref cacheMACDBBLINES);
+		}
+
+		public FossilBlade.GatorAmped GatorAmped(ISeries<double> input, bool artBasedStatus, bool colored, int wakingTick, int feastingTick, int aboutToSleepTick, double atrMultiplier, bool playPBSound)
+		{
+			if (cacheGatorAmped != null)
+				for (int idx = 0; idx < cacheGatorAmped.Length; idx++)
+					if (cacheGatorAmped[idx].ArtBasedStatus == artBasedStatus && cacheGatorAmped[idx].Colored == colored && cacheGatorAmped[idx].WakingTick == wakingTick && cacheGatorAmped[idx].FeastingTick == feastingTick && cacheGatorAmped[idx].AboutToSleepTick == aboutToSleepTick && cacheGatorAmped[idx].AtrMultiplier == atrMultiplier && cacheGatorAmped[idx].PlayPBSound == playPBSound && cacheGatorAmped[idx].EqualsInput(input))
+						return cacheGatorAmped[idx];
+			return CacheIndicator<FossilBlade.GatorAmped>(new FossilBlade.GatorAmped(){ ArtBasedStatus = artBasedStatus, Colored = colored, WakingTick = wakingTick, FeastingTick = feastingTick, AboutToSleepTick = aboutToSleepTick, AtrMultiplier = atrMultiplier, PlayPBSound = playPBSound }, input, ref cacheGatorAmped);
+		}
+
+		public FossilBlade.SMMAR SMMAR(ISeries<double> input, int period)
+		{
+			if (cacheSMMAR != null)
+				for (int idx = 0; idx < cacheSMMAR.Length; idx++)
+					if (cacheSMMAR[idx].Period == period && cacheSMMAR[idx].EqualsInput(input))
+						return cacheSMMAR[idx];
+			return CacheIndicator<FossilBlade.SMMAR>(new FossilBlade.SMMAR(){ Period = period }, input, ref cacheSMMAR);
+		}
+
+	}
+}
+
+namespace NinjaTrader.NinjaScript.MarketAnalyzerColumns
+{
+	public partial class MarketAnalyzerColumn : MarketAnalyzerColumnBase
+	{
+		
+		public Indicators.TSSuperTrend TSSuperTrend(SuperTrendMode smode, int length, double multiplier, MovingAverageType maType, int smooth, bool showArrows, bool colorBars, bool playAlert)
+		{
+			return indicator.TSSuperTrend(Input, smode, length, multiplier, maType, smooth, showArrows, colorBars, playAlert);
+		}
+
+		public Indicators.MACDBBLINES MACDBBLINES(int fast, int slow, int smoothing, Brush upColor, Brush dwColor, int stDev, int period, int bandFillOpacity, Brush bandFillColor, bool showCross, Brush crossAlert, Brush crossAlert2)
+		{
+			return indicator.MACDBBLINES(Input, fast, slow, smoothing, upColor, dwColor, stDev, period, bandFillOpacity, bandFillColor, showCross, crossAlert, crossAlert2);
+		}
+
+		public Indicators.FossilBlade.GatorAmped GatorAmped(bool artBasedStatus, bool colored, int wakingTick, int feastingTick, int aboutToSleepTick, double atrMultiplier, bool playPBSound)
+		{
+			return indicator.GatorAmped(Input, artBasedStatus, colored, wakingTick, feastingTick, aboutToSleepTick, atrMultiplier, playPBSound);
+		}
+
+		public Indicators.FossilBlade.SMMAR SMMAR(int period)
+		{
+			return indicator.SMMAR(Input, period);
+		}
+
+
+		
+		public Indicators.TSSuperTrend TSSuperTrend(ISeries<double> input , SuperTrendMode smode, int length, double multiplier, MovingAverageType maType, int smooth, bool showArrows, bool colorBars, bool playAlert)
+		{
+			return indicator.TSSuperTrend(input, smode, length, multiplier, maType, smooth, showArrows, colorBars, playAlert);
+		}
+
+		public Indicators.MACDBBLINES MACDBBLINES(ISeries<double> input , int fast, int slow, int smoothing, Brush upColor, Brush dwColor, int stDev, int period, int bandFillOpacity, Brush bandFillColor, bool showCross, Brush crossAlert, Brush crossAlert2)
+		{
+			return indicator.MACDBBLINES(input, fast, slow, smoothing, upColor, dwColor, stDev, period, bandFillOpacity, bandFillColor, showCross, crossAlert, crossAlert2);
+		}
+
+		public Indicators.FossilBlade.GatorAmped GatorAmped(ISeries<double> input , bool artBasedStatus, bool colored, int wakingTick, int feastingTick, int aboutToSleepTick, double atrMultiplier, bool playPBSound)
+		{
+			return indicator.GatorAmped(input, artBasedStatus, colored, wakingTick, feastingTick, aboutToSleepTick, atrMultiplier, playPBSound);
+		}
+
+		public Indicators.FossilBlade.SMMAR SMMAR(ISeries<double> input , int period)
+		{
+			return indicator.SMMAR(input, period);
+		}
+	
+	}
+}
+
+namespace NinjaTrader.NinjaScript.Strategies
+{
+	public partial class Strategy : NinjaTrader.Gui.NinjaScript.StrategyRenderBase
+	{
+		
+		public Indicators.TSSuperTrend TSSuperTrend(SuperTrendMode smode, int length, double multiplier, MovingAverageType maType, int smooth, bool showArrows, bool colorBars, bool playAlert)
+		{
+			return indicator.TSSuperTrend(Input, smode, length, multiplier, maType, smooth, showArrows, colorBars, playAlert);
+		}
+
+		public Indicators.MACDBBLINES MACDBBLINES(int fast, int slow, int smoothing, Brush upColor, Brush dwColor, int stDev, int period, int bandFillOpacity, Brush bandFillColor, bool showCross, Brush crossAlert, Brush crossAlert2)
+		{
+			return indicator.MACDBBLINES(Input, fast, slow, smoothing, upColor, dwColor, stDev, period, bandFillOpacity, bandFillColor, showCross, crossAlert, crossAlert2);
+		}
+
+		public Indicators.FossilBlade.GatorAmped GatorAmped(bool artBasedStatus, bool colored, int wakingTick, int feastingTick, int aboutToSleepTick, double atrMultiplier, bool playPBSound)
+		{
+			return indicator.GatorAmped(Input, artBasedStatus, colored, wakingTick, feastingTick, aboutToSleepTick, atrMultiplier, playPBSound);
+		}
+
+		public Indicators.FossilBlade.SMMAR SMMAR(int period)
+		{
+			return indicator.SMMAR(Input, period);
+		}
+
+
+		
+		public Indicators.TSSuperTrend TSSuperTrend(ISeries<double> input , SuperTrendMode smode, int length, double multiplier, MovingAverageType maType, int smooth, bool showArrows, bool colorBars, bool playAlert)
+		{
+			return indicator.TSSuperTrend(input, smode, length, multiplier, maType, smooth, showArrows, colorBars, playAlert);
+		}
+
+		public Indicators.MACDBBLINES MACDBBLINES(ISeries<double> input , int fast, int slow, int smoothing, Brush upColor, Brush dwColor, int stDev, int period, int bandFillOpacity, Brush bandFillColor, bool showCross, Brush crossAlert, Brush crossAlert2)
+		{
+			return indicator.MACDBBLINES(input, fast, slow, smoothing, upColor, dwColor, stDev, period, bandFillOpacity, bandFillColor, showCross, crossAlert, crossAlert2);
+		}
+
+		public Indicators.FossilBlade.GatorAmped GatorAmped(ISeries<double> input , bool artBasedStatus, bool colored, int wakingTick, int feastingTick, int aboutToSleepTick, double atrMultiplier, bool playPBSound)
+		{
+			return indicator.GatorAmped(input, artBasedStatus, colored, wakingTick, feastingTick, aboutToSleepTick, atrMultiplier, playPBSound);
+		}
+
+		public Indicators.FossilBlade.SMMAR SMMAR(ISeries<double> input , int period)
+		{
+			return indicator.SMMAR(input, period);
+		}
+
+	}
+}
+
+#endregion
